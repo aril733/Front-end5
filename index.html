@@ -2,8 +2,8 @@
 <html lang="pt-br">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Trabalho APIs</title>
   <link rel="stylesheet" href="CSS/style.css">
 </head>
@@ -17,57 +17,41 @@
     </nav>
   </header>
 
-  <main>
+  <!-- ===================== PÁGINA 1 ===================== -->
+  <section id="pagina1" class="section">
+    <h1>Consulta de CEP</h1>
+    <p>Preencha o CEP abaixo. Os dados virão da API ViaCEP.</p>
 
-    <!-- ========================== PAGINA 1 ========================== -->
-    <section id="pagina1" class="section">
+    <label>CEP:</label><br>
+    <input type="text" id="cep" maxlength="9" placeholder="Ex: 96201460">
+    <button id="btnBuscar">Consultar</button>
 
-      <h1>Consulta de CEP (ViaCEP API)</h1>
-      <p>Digite um CEP válido para consultar informações diretamente da API ViaCEP.</p>
+    <div id="resultado" class="api-card"></div>
+  </section>
 
-      <label for="cep">CEP:</label>
-      <input type="text" id="cep" placeholder="Ex: 96201460" maxlength="9">
+  <!-- SEPARAÇÃO IGUAL A PDF -->
+  <div class="page-break"></div>
 
-      <button id="btnBuscar">Consultar</button>
+  <!-- ===================== PÁGINA 2 ===================== -->
+  <section id="pagina2" class="section">
+    <h1>Consulta a 3 APIs Públicas</h1>
+    <p>As informações abaixo são carregadas automaticamente.</p>
 
-      <div id="resultado" class="api-card"></div>
+    <div id="swapi" class="api-card">
+      <h2>Star Wars API</h2>
+      <p>Exemplo: personagem retornado da API</p>
+    </div>
 
-    </section>
+    <div id="fipe" class="api-card">
+      <h2>FIPE API</h2>
+      <p>Exemplo de marca de carro</p>
+    </div>
 
-    <!-- QUADRO DE SEPARAÇÃO (como página de PDF) -->
-    <div class="page-break"></div>
-
-    <!-- ========================== PAGINA 2 ========================== -->
-    <section id="pagina2" class="section">
-
-      <h1>APIs Públicas</h1>
-      <p>Abaixo você encontra dados reais de 3 APIs públicas diferentes.</p>
-
-      <!-- Star Wars -->
-      <div id="swapi" class="api-card">
-        <h2>Star Wars API</h2>
-        <p>Dados sobre personagens da franquia Star Wars.</p>
-      </div>
-
-      <!-- FIPE -->
-      <div id="fipe" class="api-card">
-        <h2>Tabela FIPE</h2>
-        <p>Consulta exemplo sobre marcas de carros.</p>
-      </div>
-
-      <!-- JSONPlaceholder -->
-      <div id="jsonplaceholder" class="api-card">
-        <h2>JSONPlaceholder</h2>
-        <p>Título de um post fictício retornado pela API.</p>
-      </div>
-
-    </section>
-
-  </main>
-
-  <footer style="padding: 40px; text-align:center; background:#eee; margin-top:40px;">
-    <p>Trabalho de APIs — IFRS</p>
-  </footer>
+    <div id="jsonplaceholder" class="api-card">
+      <h2>JSONPlaceholder</h2>
+      <p>Exemplo de título de post</p>
+    </div>
+  </section>
 
   <script src="JS/script.js"></script>
 </body>
