@@ -1,4 +1,4 @@
-/* RESET */
+
 * {
   margin: 0;
   padding: 0;
@@ -44,7 +44,7 @@ nav a {
   box-shadow: 0 0 25px rgba(0,0,0,0.25);
 }
 
-/* VISIBILIDADE DAS PÁGINAS */
+
 .visible {
   display: block;
 }
@@ -53,7 +53,7 @@ nav a {
   display: none;
 }
 
-/* CARDS DAS APIS */
+
 .api-card {
   background: #f6f6f6;
   padding: 20px;
