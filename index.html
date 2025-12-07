@@ -1,83 +1,41 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Trabalho de APIs</title>
+<!DOCTYPE HTML>
+<html lang="pt-br">
 
-  <!-- CAMINHO AJUSTADO -->
-  <link rel="stylesheet" href="CSS/style.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta CEP</title>
+    <link rel="stylesheet" href="CSS/style.css">
 </head>
 
 <body>
 
-<header class="menu-sticky">
-  <div class="logo-nav">
-    <h1>Meu Site API</h1>
-
+<header class="menu">
     <nav>
-      <a href="#" onclick="mostrarPagina('pagina1')">Enviar Dados</a>
-      <a href="#" onclick="mostrarPagina('pagina2')">Consultar APIs</a>
+        <a href="index.html">Página 1</a>
+        <a href="apis.html">Página 2</a>
     </nav>
-  </div>
 </header>
 
 <main>
+    <h1>Consulta de CEP - ViaCEP</h1>
 
-  <!-- PÁGINA 1 -->
-  <section id="pagina1" class="secao">
-    <h2>Envio de Dados Para API</h2>
-    <p>Preencha seus dados e enviaremos para a API JSONPlaceholder.</p>
+    <p>Digite um CEP para consultar dados diretamente da API ViaCEP.  
+    Esta API retorna informações sobre endereço, bairro, cidade e estado.</p>
 
-    <form id="form-api">
-      <label>Nome:
-        <input type="text" id="nome" required>
-      </label>
+    <label for="cep">CEP:</label>
+    <input type="number" id="cep"> <br>
 
-      <label>Email:
-        <input type="email" id="email" required>
-      </label>
+    <input type="button" value="Enviar" id="enviar"><br>
 
-      <button type="submit">Enviar</button>
-    </form>
-
-    <div id="resposta-api" class="resultado"></div>
-  </section>
-
-  <!-- PÁGINA 2 -->
-  <section id="pagina2" class="secao" style="display:none">
-
-    <h2>Consulta de 3 APIs</h2>
-
-    <div class="card">
-      <h3>Preço de carro (API FIPE)</h3>
-      <button onclick="buscarFipe()">Buscar Fipe</button>
-      <div id="fipe"></div>
-    </div>
-
-    <div class="card">
-      <h3>Usuário Fake (JSONPlaceholder)</h3>
-      <button onclick="buscarUsuario()">Buscar Usuário</button>
-      <div id="usuario"></div>
-    </div>
-
-    <div class="card">
-      <h3>Star Wars (SWAPI)</h3>
-      <button onclick="buscarStarWars()">Buscar Planeta</button>
-      <div id="swapi"></div>
-    </div>
-
-  </section>
-
+    <div id="mostra"></div>
 </main>
 
 <footer>
-  <p>Desenvolvido para trabalho escolar – 2025</p>
+    <p>Trabalho de APIs - IFRS</p>
 </footer>
 
-<!-- CAMINHO AJUSTADO -->
 <script src="JS/script.js"></script>
 
 </body>
 </html>
-
