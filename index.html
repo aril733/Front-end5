@@ -12,15 +12,15 @@
 
   <header>
     <nav>
-      <a href="#pagina1">Página 1</a>
-      <a href="#pagina2">Página 2</a>
+      <a href="#" id="linkPag1">Página 1</a>
+      <a href="#" id="linkPag2">Página 2</a>
     </nav>
   </header>
 
   <!-- ===================== PÁGINA 1 ===================== -->
-  <section id="pagina1" class="section">
+  <section id="pagina1" class="page visible">
     <h1>Consulta de CEP</h1>
-    <p>Preencha o CEP abaixo. Os dados virão da API ViaCEP.</p>
+    <p>Informe um CEP válido (somente números). Os dados serão consultados diretamente pela API ViaCEP.</p>
 
     <label>CEP:</label><br>
     <input type="text" id="cep" maxlength="9" placeholder="Ex: 96201460">
@@ -29,31 +29,29 @@
     <div id="resultado" class="api-card"></div>
   </section>
 
-  <!-- SEPARAÇÃO IGUAL A PDF -->
-  <div class="page-break"></div>
-
   <!-- ===================== PÁGINA 2 ===================== -->
-  <section id="pagina2" class="section">
-    <h1>Consulta a 3 APIs Públicas</h1>
-    <p>As informações abaixo são carregadas automaticamente.</p>
+  <section id="pagina2" class="page hidden">
+    <h1>Consulta Automática a Três APIs</h1>
+    <p>Abaixo estão exemplos reais de dados coletados de três APIs públicas diferentes.</p>
 
     <div id="swapi" class="api-card">
-      <h2>Star Wars API</h2>
-      <p>Exemplo: personagem retornado da API</p>
+      <h2>Star Wars API (SWAPI)</h2>
+      <p>Dados completos sobre um personagem do universo Star Wars:</p>
     </div>
 
     <div id="fipe" class="api-card">
-      <h2>FIPE API</h2>
-      <p>Exemplo de marca de carro</p>
+      <h2>FIPE - Tabela de Preços de Carros</h2>
+      <p>Dados sobre marcas de automóveis no Brasil:</p>
     </div>
 
     <div id="jsonplaceholder" class="api-card">
       <h2>JSONPlaceholder</h2>
-      <p>Exemplo de título de post</p>
+      <p>Exemplo de dados de postagens simuladas:</p>
     </div>
+
   </section>
 
   <script src="JS/script.js"></script>
-</body>
 
+</body>
 </html>
