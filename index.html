@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consulta CEP</title>
+    <title>Trabalho de APIs</title>
+
     <link rel="stylesheet" href="CSS/style.css">
 </head>
 
@@ -12,30 +13,73 @@
 
 <header class="menu">
     <nav>
-        <a href="index.html">Página 1</a>
-        <a href="apis.html">Página 2</a>
+        <a href="#pagina1">Página 1</a>
+        <a href="#pagina2">Página 2</a>
     </nav>
 </header>
 
-<main>
-    <h1>Consulta de CEP - ViaCEP</h1>
 
-    <p>Digite um CEP para consultar dados diretamente da API ViaCEP.  
-    Esta API retorna informações sobre endereço, bairro, cidade e estado.</p>
+<main>
+
+<!-- ========================= -->
+<!--     PÁGINA 1 - FORM       -->
+<!-- ========================= -->
+
+<section id="pagina1" class="secao">
+    <h1>Página 1 — Consulta de CEP (ViaCEP)</h1>
+    <p>Digite um CEP válido e a API ViaCEP retornará os dados do endereço.</p>
 
     <label for="cep">CEP:</label>
-    <input type="number" id="cep"> <br>
+    <input type="number" id="cep">
+    <button id="btnBuscar">Enviar</button>
 
-    <input type="button" value="Enviar" id="enviar"><br>
+    <div id="resultado"></div>
+</section>
 
-    <div id="mostra"></div>
+
+
+
+<!-- ========================= -->
+<!--    PÁGINA 2 - 3 APIs      -->
+<!-- ========================= -->
+
+<section id="pagina2" class="secao">
+
+    <h1>Página 2 — Consumo de 3 APIs Diferentes</h1>
+    <p>Abaixo estão três APIs diferentes, com suas explicações e resultados ao clicar nos botões.</p>
+
+    <!-- API 1 — ViaCEP -->
+    <h2>API 1 — ViaCEP</h2>
+    <p>Esta API retorna informações de um CEP brasileiro.</p>
+    <button id="btnApiCep">Carregar exemplo</button>
+    <div id="apiCep"></div>
+
+    <hr>
+
+    <!-- API 2 — FIPE -->
+    <h2>API 2 — FIPE</h2>
+    <p>Retorna a lista de marcas de carros disponíveis na tabela FIPE.</p>
+    <button id="btnApiFipe">Carregar marcas</button>
+    <div id="apiFipe"></div>
+
+    <hr>
+
+    <!-- API 3 — SWAPI -->
+    <h2>API 3 — SWAPI (Star Wars)</h2>
+    <p>Retorna informações do universo Star Wars.</p>
+    <button id="btnApiSwapi">Carregar personagem</button>
+    <div id="apiSwapi"></div>
+
+</section>
+
 </main>
 
-<footer>
-    <p>Trabalho de APIs - IFRS</p>
+
+<footer class="rodape">
+    <p>Trabalho de APIs — IFRS</p>
 </footer>
 
 <script src="JS/script.js"></script>
-
 </body>
 </html>
+
