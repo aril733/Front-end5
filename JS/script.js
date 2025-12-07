@@ -1,98 +1,121 @@
-// =========================
-// PÁGINA 1 — CONSULTA CEP
-// =========================
+    /* ===============================
+   PÁGINA 1 — VIA CEP (formulário)
+   =============================== */
 
-let btnBuscar = document.querySelector('#btnBuscar');
+const btnBuscar = document.querySelector("#btnBuscar");
 if (btnBuscar) {
-    btnBuscar.addEventListener('click', () => {
-        let cep = document.querySelector('#cep').value;
+    btnBuscar.addEventListener("click", () => {
+        const painel = document.querySelector("#resultado");
+        painel.innerHTML = "Carregando...";
+
+        let cep = document.querySelector("#cep").value;
+        cep = cep.replace(/\D/g, "");
+
+        if (cep.length !== 8) {
+            painel.innerHTML = "CEP inválido. Digite 8 números.";
+            return;
+        }
+
         const url = "https://viacep.com.br/ws/" + cep + "/json/";
 
         fetch(url)
-            .then(res => res.json())
+            .then(resp => resp.json())
             .then(js => {
-                document.querySelector('#resultado').innerHTML =
-                    `<h2>Resultado:</h2>
-                     Logradouro: ${js.logradouro}<br>
-                     Bairro: ${js.bairro}<br>
-                     Cidade: ${js.localidade}<br>
-                     Estado: ${js.uf}`;
+                if (js.erro) {
+                    painel.innerHTML = "CEP não encontrado.";
+                    return;
+                }
+
+                painel.innerHTML =
+                    "CEP: " + js.cep + "<br>" +
+                    "Logradouro: " + js.logradouro + "<br>" +
+                    "Bairro: " + js.bairro + "<br>" +
+                    "Cidade: " + js.localidade + "<br>" +
+                    "UF: " + js.uf;
             })
             .catch(() => {
-                document.querySelector('#resultado').innerHTML = "Erro ao consultar CEP.";
+                painel.innerHTML = "Erro ao consultar API.";
             });
     });
 }
 
 
 
-// =========================
-// PÁGINA 2 — API 1 (ViaCEP)
-// =========================
+/* =================================
+   PÁGINA 2 — API 1 ViaCEP exemplo
+   ================================= */
 
-let btnApiCep = document.querySelector('#btnApiCep');
-if (btnApiCep) {
-    btnApiCep.addEventListener('click', () => {
+const btnApi1 = document.querySelector("#btnApi1");
+if (btnApi1) {
+    btnApi1.addEventListener("click", () => {
+        const out = document.querySelector("#api1");
+        out.innerHTML = "Carregando...";
+
         fetch("https://viacep.com.br/ws/01001000/json/")
             .then(r => r.json())
             .then(js => {
-                document.querySelector('#apiCep').innerHTML =
-                    `CEP: ${js.cep}<br>Cidade: ${js.localidade}<br>UF: ${js.uf}`;
+                out.innerHTML =
+                    "CEP: " + js.cep + "<br>" +
+                    "Cidade: " + js.localidade + "<br>" +
+                    "UF: " + js.uf;
             })
             .catch(() => {
-                document.querySelector('#apiCep').innerHTML = "Erro ao carregar API ViaCEP.";
+                out.innerHTML = "Erro ao carregar ViaCEP";
             });
     });
 }
 
 
 
-// =========================
-// PÁGINA 2 — API 2 (FIPE)
-// =========================
+/* =================================
+   PÁGINA 2 — API 2 FIPE (async/await)
+   ================================= */
 
-let btnApiFipe = document.querySelector('#btnApiFipe');
-if (btnApiFipe) {
-    btnApiFipe.addEventListener('click', async () => {
+const btnApi2 = document.querySelector("#btnApi2");
+if (btnApi2) {
+    btnApi2.addEventListener("click", async () => {
+        const out = document.querySelector("#api2");
+        out.innerHTML = "Carregando...";
 
         const url = "https://parallelum.com.br/fipe/api/v1/carros/marcas";
-        const painel = document.querySelector('#apiFipe');
 
         try {
             let r = await fetch(url);
-            let marcas = await r.json();
+            let lista = await r.json();
 
-            painel.innerHTML =
-                `<b>Primeiras marcas:</b><br>
-                 ${marcas[0].nome}<br>
-                 ${marcas[1].nome}<br>
-                 ${marcas[2].nome}`;
-        }
-        catch {
-            painel.innerHTML = "Erro ao consultar FIPE.";
+            out.innerHTML = `
+                ${lista[0].nome}<br>
+                ${lista[1].nome}<br>
+                ${lista[2].nome}
+            `;
+        } catch {
+            out.innerHTML = "Erro ao consultar FIPE";
         }
     });
 }
 
 
 
-// =========================
-// PÁGINA 2 — API 3 (SWAPI)
-// =========================
+/* =================================
+   PÁGINA 2 — API 3 SWAPI
+   ================================= */
 
-let btnApiSwapi = document.querySelector('#btnApiSwapi');
-if (btnApiSwapi) {
-    btnApiSwapi.addEventListener('click', () => {
-        fetch("https://swapi.dev/api/people/1")
+const btnApi3 = document.querySelector("#btnApi3");
+if (btnApi3) {
+    btnApi3.addEventListener("click", () => {
+        const out = document.querySelector("#api3");
+        out.innerHTML = "Carregando...";
+
+        fetch("https://swapi.dev/api/people/1/")
             .then(r => r.json())
             .then(js => {
-                document.querySelector('#apiSwapi').innerHTML =
-                    `Nome: ${js.name}<br>
-                     Altura: ${js.height}<br>
-                     Gênero: ${js.gender}`;
+                out.innerHTML =
+                    "Nome: " + js.name + "<br>" +
+                    "Altura: " + js.height + "<br>" +
+                    "Gênero: " + js.gender;
             })
             .catch(() => {
-                document.querySelector('#apiSwapi').innerHTML = "Erro ao carregar SWAPI.";
+                out.innerHTML = "Erro ao consultar SWAPI";
             });
     });
 }
