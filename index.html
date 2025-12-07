@@ -1,80 +1,75 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trabalho APIs</title>
-    <link rel="stylesheet" href="CSS/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trabalho APIs</title>
+  <link rel="stylesheet" href="CSS/style.css">
 </head>
 
 <body>
 
-<header class="menu">
+  <header>
     <nav>
-        <a href="#pagina1">Página 1</a>
-        <a href="#pagina2">Página 2</a>
+      <a href="#pagina1">Página 1</a>
+      <a href="#pagina2">Página 2</a>
     </nav>
-</header>
+  </header>
 
-<main>
+  <main>
 
-    <!-- ============================= -->
-    <!-- PAGINA 1 – FORMULÁRIO e API -->
-    <!-- ============================= -->
-    <section id="pagina1" class="secao">
-        <h1>Página 1 — Consulta CEP (ViaCEP)</h1>
-        <p class="descricao">
-            Digite um CEP válido e enviaremos esses dados para a API ViaCEP.
-            A resposta será mostrada abaixo.
-        </p>
+    <!-- ========================== PAGINA 1 ========================== -->
+    <section id="pagina1" class="section">
 
-        <label for="cep">CEP (8 dígitos):</label>
-        <input type="text" id="cep" maxlength="9" placeholder="Ex: 96201460">
+      <h1>Consulta de CEP (ViaCEP API)</h1>
+      <p>Digite um CEP válido para consultar informações diretamente da API ViaCEP.</p>
 
-        <button id="btnBuscar">Enviar</button>
+      <label for="cep">CEP:</label>
+      <input type="text" id="cep" placeholder="Ex: 96201460" maxlength="9">
 
-        <div id="resultado"></div>
-    </section>
+      <button id="btnBuscar">Consultar</button>
 
-
-    <!-- ============================== -->
-    <!-- PAGINA 2 – TRÊS APIs DIFERENTES -->
-    <!-- ============================== -->
-    <section id="pagina2" class="secao">
-        <h1>Página 2 — 3 APIs Diferentes</h1>
-
-        <!-- API 1 -->
-        <div class="api-box">
-            <h2>API 1 — ViaCEP</h2>
-            <p>Exemplo simples: consulta um CEP fixo.</p>
-            <button id="btnApi1">Carregar</button>
-            <div id="api1"></div>
-        </div>
-
-        <!-- API 2 -->
-        <div class="api-box">
-            <h2>API 2 — FIPE</h2>
-            <p>Lista algumas marcas de carros da API FIPE.</p>
-            <button id="btnApi2">Carregar</button>
-            <div id="api2"></div>
-        </div>
-
-        <!-- API 3 -->
-        <div class="api-box">
-            <h2>API 3 — SWAPI (Star Wars)</h2>
-            <p>Mostra informações básicas de Luke Skywalker.</p>
-            <button id="btnApi3">Carregar</button>
-            <div id="api3"></div>
-        </div>
+      <div id="resultado" class="api-card"></div>
 
     </section>
 
-</main>
+    <!-- QUADRO DE SEPARAÇÃO (como página de PDF) -->
+    <div class="page-break"></div>
 
-<footer>
-    <p>Trabalho de APIs - IFRS</p>
-</footer>
+    <!-- ========================== PAGINA 2 ========================== -->
+    <section id="pagina2" class="section">
 
-<script src="JS/script.js"></script>
+      <h1>APIs Públicas</h1>
+      <p>Abaixo você encontra dados reais de 3 APIs públicas diferentes.</p>
+
+      <!-- Star Wars -->
+      <div id="swapi" class="api-card">
+        <h2>Star Wars API</h2>
+        <p>Dados sobre personagens da franquia Star Wars.</p>
+      </div>
+
+      <!-- FIPE -->
+      <div id="fipe" class="api-card">
+        <h2>Tabela FIPE</h2>
+        <p>Consulta exemplo sobre marcas de carros.</p>
+      </div>
+
+      <!-- JSONPlaceholder -->
+      <div id="jsonplaceholder" class="api-card">
+        <h2>JSONPlaceholder</h2>
+        <p>Título de um post fictício retornado pela API.</p>
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer style="padding: 40px; text-align:center; background:#eee; margin-top:40px;">
+    <p>Trabalho de APIs — IFRS</p>
+  </footer>
+
+  <script src="JS/script.js"></script>
 </body>
+
 </html>
