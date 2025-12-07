@@ -5,39 +5,75 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background: #f3f3f3;
+    font-family: Arial;
+    background: #f1f1f1;
 }
 
+/* MENU */
 .menu {
+    position: fixed;
+    top: 0;
+    width: 100%;
     background: #222;
     padding: 15px;
     text-align: center;
-    position: fixed;
-    width: 100%;
-    top: 0;
 }
 
 .menu a {
     color: white;
     margin: 0 20px;
     text-decoration: none;
+    font-weight: bold;
 }
 
+/* SEÇÕES */
 main {
-    padding-top: 90px;
+    padding-top: 100px;
 }
 
 .secao {
     background: white;
-    padding: 25px;
-    margin: 25px;
-    border-radius: 6px;
+    margin: 50px auto;
+    max-width: 1000px;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #0002;
 }
 
-footer {
-    background: #222;
-    padding: 25px;
-    text-align: center;
+.secao h1 {
+    margin-bottom: 20px;
+}
+
+.descricao {
+    margin-bottom: 15px;
+}
+
+/* API BOXES */
+.api-box {
+    padding: 20px;
+    margin: 30px 0;
+    background: #fafafa;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+button {
+    padding: 10px 20px;
+    background: #111;
     color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    opacity: 0.85;
+}
+
+#resultado, #api1, #api2, #api3 {
+    margin-top: 15px;
+    padding: 15px;
+    background: #eee;
+    border-radius: 6px;
 }
