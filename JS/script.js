@@ -1,81 +1,98 @@
-function mostrarPagina(pagina) {
-  document.getElementById("pagina1").style.display = "none";
-  document.getElementById("pagina2").style.display = "none";
-  document.getElementById(pagina).style.display = "block";
-}
+// =========================
+// PÁGINA 1 — CONSULTA CEP
+// =========================
 
-/* -------- PÁGINA 1 - FORM API ---------- */
+let btnBuscar = document.querySelector('#btnBuscar');
+if (btnBuscar) {
+    btnBuscar.addEventListener('click', () => {
+        let cep = document.querySelector('#cep').value;
+        const url = "https://viacep.com.br/ws/" + cep + "/json/";
 
-document.getElementById("form-api").addEventListener("submit", async (e) => {
-  e.preventDefault();
-
-  const nome = document.getElementById("nome").value;
-  const email = document.getElementById("email").value;
-  const respostaDiv = document.getElementById("resposta-api");
-
-  try {
-    const resp = await fetch("https://jsonplaceholder.typicode.com/posts", {
-      method: "POST",
-      headers: {"Content-Type": "application/json"},
-      body: JSON.stringify({ nome, email })
+        fetch(url)
+            .then(res => res.json())
+            .then(js => {
+                document.querySelector('#resultado').innerHTML =
+                    `<h2>Resultado:</h2>
+                     Logradouro: ${js.logradouro}<br>
+                     Bairro: ${js.bairro}<br>
+                     Cidade: ${js.localidade}<br>
+                     Estado: ${js.uf}`;
+            })
+            .catch(() => {
+                document.querySelector('#resultado').innerHTML = "Erro ao consultar CEP.";
+            });
     });
-
-    if (!resp.ok) throw new Error("Erro na API");
-
-    const data = await resp.json();
-
-    respostaDiv.innerHTML = `
-      <h3>Resposta da API:</h3>
-      <pre>${JSON.stringify(data, null, 2)}</pre>
-    `;
-
-  } catch (erro) {
-    respostaDiv.innerHTML = "<p style='color:red'>Falha ao enviar dados.</p>";
-  }
-});
-
-
-/* --------- PÁGINA 2 - 3 APIS ------------ */
-
-async function buscarFipe() {
-  try {
-    const resp = await fetch("https://parallelum.com.br/fipe/api/v1/carros/marcas");
-    if (!resp.ok) throw new Error("Erro API FIPE");
-    const data = await resp.json();
-
-    document.getElementById("fipe").innerHTML =
-      `<p>Primeira marca encontrada: <strong>${data[0].nome}</strong></p>`;
-
-  } catch {
-    document.getElementById("fipe").innerHTML = "Erro ao carregar FIPE.";
-  }
 }
 
-async function buscarUsuario() {
-  try {
-    const resp = await fetch("https://jsonplaceholder.typicode.com/users/1");
-    if (!resp.ok) throw new Error("Erro usuário");
-    const data = await resp.json();
 
-    document.getElementById("usuario").innerHTML =
-      `<p>Nome: <strong>${data.name}</strong></p> 
-       <p>Email: ${data.email}</p>`;
-  } catch {
-    document.getElementById("usuario").innerHTML = "Erro ao carregar usuário.";
-  }
+
+// =========================
+// PÁGINA 2 — API 1 (ViaCEP)
+// =========================
+
+let btnApiCep = document.querySelector('#btnApiCep');
+if (btnApiCep) {
+    btnApiCep.addEventListener('click', () => {
+        fetch("https://viacep.com.br/ws/01001000/json/")
+            .then(r => r.json())
+            .then(js => {
+                document.querySelector('#apiCep').innerHTML =
+                    `CEP: ${js.cep}<br>Cidade: ${js.localidade}<br>UF: ${js.uf}`;
+            })
+            .catch(() => {
+                document.querySelector('#apiCep').innerHTML = "Erro ao carregar API ViaCEP.";
+            });
+    });
 }
 
-async function buscarStarWars() {
-  try {
-    const resp = await fetch("https://swapi.dev/api/planets/1/");
-    if (!resp.ok) throw new Error("Erro SWAPI");
-    const data = await resp.json();
 
-    document.getElementById("swapi").innerHTML =
-      `<p>Planeta: <strong>${data.name}</strong></p> 
-       <p>Clima: ${data.climate}</p>`;
-  } catch {
-    document.getElementById("swapi").innerHTML = "Erro ao carregar SWAPI.";
-  }
+
+// =========================
+// PÁGINA 2 — API 2 (FIPE)
+// =========================
+
+let btnApiFipe = document.querySelector('#btnApiFipe');
+if (btnApiFipe) {
+    btnApiFipe.addEventListener('click', async () => {
+
+        const url = "https://parallelum.com.br/fipe/api/v1/carros/marcas";
+        const painel = document.querySelector('#apiFipe');
+
+        try {
+            let r = await fetch(url);
+            let marcas = await r.json();
+
+            painel.innerHTML =
+                `<b>Primeiras marcas:</b><br>
+                 ${marcas[0].nome}<br>
+                 ${marcas[1].nome}<br>
+                 ${marcas[2].nome}`;
+        }
+        catch {
+            painel.innerHTML = "Erro ao consultar FIPE.";
+        }
+    });
 }
 
+
+
+// =========================
+// PÁGINA 2 — API 3 (SWAPI)
+// =========================
+
+let btnApiSwapi = document.querySelector('#btnApiSwapi');
+if (btnApiSwapi) {
+    btnApiSwapi.addEventListener('click', () => {
+        fetch("https://swapi.dev/api/people/1")
+            .then(r => r.json())
+            .then(js => {
+                document.querySelector('#apiSwapi').innerHTML =
+                    `Nome: ${js.name}<br>
+                     Altura: ${js.height}<br>
+                     Gênero: ${js.gender}`;
+            })
+            .catch(() => {
+                document.querySelector('#apiSwapi').innerHTML = "Erro ao carregar SWAPI.";
+            });
+    });
+}
