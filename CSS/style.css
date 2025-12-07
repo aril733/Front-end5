@@ -1,79 +1,61 @@
+/* resets */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: Arial;
-    background: #f1f1f1;
+  font-family: Arial, sans-serif;
+  background-color: #f6f6f6;
 }
 
-/* MENU */
-.menu {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: #222;
-    padding: 15px;
-    text-align: center;
+/* MENU FIXO */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #111;
+  color: white;
+  padding: 15px;
+  z-index: 1000;
 }
 
-.menu a {
-    color: white;
-    margin: 0 20px;
-    text-decoration: none;
-    font-weight: bold;
+nav {
+  display: flex;
+  gap: 25px;
 }
 
-/* SEÇÕES */
-main {
-    padding-top: 100px;
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
 }
 
-.secao {
-    background: white;
-    margin: 50px auto;
-    max-width: 1000px;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px #0002;
+/* SEÇÕES styled como páginas de PDF */
+.section {
+  padding: 120px 30px 80px 30px; 
+  min-height: 100vh;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
-.secao h1 {
-    margin-bottom: 20px;
+/* Efeito de PAGE BREAK gigante */
+.page-break {
+  height: 180px;         /* separação grande entre as páginas */
+  background: #ddd;      /* cor clara pra parecer "folha nova" */
+  border-top: 3px solid #bbb;
+  border-bottom: 3px solid #bbb;
+  margin: 40px 0;
 }
 
-.descricao {
-    margin-bottom: 15px;
-}
-
-/* API BOXES */
-.api-box {
-    padding: 20px;
-    margin: 30px 0;
-    background: #fafafa;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-}
-
-button {
-    padding: 10px 20px;
-    background: #111;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    margin-top: 10px;
-}
-
-button:hover {
-    opacity: 0.85;
-}
-
-#resultado, #api1, #api2, #api3 {
-    margin-top: 15px;
-    padding: 15px;
-    background: #eee;
-    border-radius: 6px;
+/* card para APIs */
+.api-card {
+  padding: 20px;
+  background: white;
+  margin: 20px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
 }
