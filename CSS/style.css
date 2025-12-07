@@ -7,10 +7,9 @@
 
 body {
   font-family: Arial, sans-serif;
-  background: #d9d9d9;
+  background: #dddddd;
 }
 
-/* MENU */
 header {
   position: fixed;
   top: 0;
@@ -18,13 +17,13 @@ header {
   height: 70px;
   background: #111;
   color: white;
-  z-index: 1000;
   display: flex;
   align-items: center;
+  padding-left: 20px;
+  z-index: 1000;
 }
 
 nav {
-  margin-left: 30px;
   display: flex;
   gap: 30px;
 }
@@ -35,27 +34,23 @@ nav a {
   font-size: 20px;
 }
 
-/* SIMULAÇÃO DE DUAS PÁGINAS (A4) */
-.section {
+.page {
   background: white;
   width: 90%;
   max-width: 900px;
-
-  margin: 120px auto; 
   padding: 40px;
-
-  min-height: 100vh;  
+  margin: 120px auto 0 auto;
   border-radius: 12px;
   box-shadow: 0 0 25px rgba(0,0,0,0.25);
 }
 
-/* “Quebra de página” REAL */
-.page-break {
-  height: 250px;
-  background: #cfcfcf;
-  border-top: 5px solid #b1b1b1;
-  border-bottom: 5px solid #b1b1b1;
-  margin: 60px 0;
+/* VISIBILIDADE DAS PÁGINAS */
+.visible {
+  display: block;
+}
+
+.hidden {
+  display: none;
 }
 
 /* CARDS DAS APIS */
