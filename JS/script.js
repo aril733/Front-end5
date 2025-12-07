@@ -1,5 +1,3 @@
-// ================= SWITCH ENTRE PÁGINAS =====================
-
 const pag1 = document.querySelector("#pagina1");
 const pag2 = document.querySelector("#pagina2");
 
@@ -17,7 +15,6 @@ document.querySelector("#linkPag2").addEventListener("click", () => {
   pag1.classList.remove("visible");
 });
 
-// ====================== PAGINA 1 (CEP) ==========================
 
 document.querySelector("#btnBuscar").addEventListener("click", () => {
   const painel = document.querySelector("#resultado");
@@ -52,7 +49,6 @@ document.querySelector("#btnBuscar").addEventListener("click", () => {
     });
 });
 
-// ====================== PAGINA 2 (APIs) ==========================
 
 async function starWars() {
   try {
